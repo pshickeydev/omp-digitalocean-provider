@@ -24,8 +24,8 @@ so each roster entry carries an accurate `cost` alongside `contextWindow`,
   same catalog. `vision` is advertised only where DO's usage notes explicitly
   list image/vision input.
 - Lists a reasoning-effort ladder (`low | medium | high`) for reasoners whose
-  effort is user-tunable (OpenAI, Anthropic, Kimi). DeepSeek, GLM, and Arcee
-  reason by default and DO does not expose graded effort — they get
+  effort is user-tunable (OpenAI, Anthropic, Kimi). DeepSeek, GLM, Arcee, and
+  MiniMax reason by default and DO does not expose graded effort — they get
   `reasoning: true` but no ladder.
 - Filters the catalog to models that are **currently live**. DO deprecates
   models; a deprecated model drops out of `/v1/models` and hence out of the
