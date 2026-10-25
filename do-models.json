@@ -1,6 +1,6 @@
 {
-  "$comment": "DigitalOcean Inference model catalog. Keys are the EXACT model IDs returned by GET https://inference.do-ai.run/v1/models (authoritative at runtime; these differ from the docs' supported-models table, which uses hyphens where the API uses dots, e.g. openai-gpt-5.4-nano, and capitalizes gemma-4-31B-it / mistral-3-14B). Cost is USD per 1,000,000 tokens, mapped to omp's cost shape {input, output, cacheRead, cacheWrite}. cacheWrite is set only where DO publishes a write rate (Anthropic 5m tier, GPT-6.x, GPT-5.6); 0 means DO published none and is reported as-is, never derived. Rates are the Standard base tier; DO prices long context higher (Haiku 5.5 >100K, Sonnet 4.5 >200K, GPT-6/5.6/5.5/5.4 families >272K, ~2-5x) and offers Fast/Flex tiers, none represented here. vision=true only where DO's usage notes explicitly state image/vision input. anthropic-claude-4.5-sonnet has a fixed end-of-support of 2026-11-30 and will drop from /v1/models (and this roster) then. Source: live /v1/models + docs.digitalocean.com pricing (2026-10-17). Only serverless chat/completions text models are included; embeddings, rerank, image/TTS/video, diarization, dedicated-only, and the non-OpenAI-compatible TypeSafe Jev endpoint are omitted.",
-  "updatedAt": "2026-10-17",
+  "$comment": "DigitalOcean Inference model catalog. Keys are the EXACT model IDs returned by GET https://inference.do-ai.run/v1/models (authoritative at runtime; these differ from the docs' supported-models table, which uses hyphens where the API uses dots, e.g. openai-gpt-5.4-nano, and capitalizes gemma-4-31B-it / mistral-3-14B). Cost is USD per 1,000,000 tokens, mapped to omp's cost shape {input, output, cacheRead, cacheWrite}. cacheWrite is set only where DO publishes a write rate (Anthropic 5m tier, GPT-6.x, GPT-5.6); 0 means DO published none and is reported as-is, never derived. Rates are the Standard base tier; DO prices long context higher (Haiku 5.5 >100K, Sonnet 4.5 >200K, GPT-6/5.6/5.5/5.4 families >272K, ~2-5x) and offers Fast/Flex tiers, none represented here. vision=true only where DO's usage notes explicitly state image/vision input. anthropic-claude-4.5-sonnet has a fixed end-of-support of 2026-11-30 and will drop from /v1/models (and this roster) then. Source: live /v1/models + docs.digitalocean.com pricing (2026-10-23). Only serverless chat/completions text models are included; embeddings, rerank, image/TTS/video, diarization, dedicated-only, and the non-OpenAI-compatible TypeSafe Jev endpoint are omitted.",
+  "updatedAt": "2026-10-23",
   "pricingBasis": "USD per 1,000,000 tokens; cacheWrite 0 means DO did not publish a write rate (cacheRead values are where published)",
   "models": {
     "anthropic-claude-fable-5.1": {
@@ -223,6 +223,11 @@
       "cost": { "input": 0.3, "output": 1.2, "cacheRead": 0.006, "cacheWrite": 0 },
       "contextWindow": 1048576, "maxTokens": 1048576, "reasoning": true, "vision": true, "thinking": false
     },
+    "deepseek-v4.1-flash-1017": {
+      "name": "DeepSeek V4.1 Flash 1017",
+      "cost": { "input": 0.3, "output": 1.2, "cacheRead": 0.006, "cacheWrite": 0 },
+      "contextWindow": 1048576, "maxTokens": 1048576, "reasoning": true, "vision": true, "thinking": false
+    },
     "deepseek-v4-pro-0813": {
       "name": "DeepSeek V4 Pro 0813",
       "cost": { "input": 1.32, "output": 3.96, "cacheRead": 0.044, "cacheWrite": 0 },
@@ -257,6 +262,11 @@
       "name": "MiniMax M2.5",
       "cost": { "input": 0.3, "output": 1.2, "cacheRead": 0.06, "cacheWrite": 0 },
       "contextWindow": 65536, "maxTokens": 65536, "reasoning": false, "vision": false, "thinking": false
+    },
+    "minimax-m3.1-flash": {
+      "name": "MiniMax M3.1-Flash",
+      "cost": { "input": 0.15, "output": 0.6, "cacheRead": 0.015, "cacheWrite": 0 },
+      "contextWindow": 1048576, "maxTokens": 1048576, "reasoning": true, "vision": false, "thinking": false
     },
     "kimi-k3": {
       "name": "Kimi K3",

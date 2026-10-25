@@ -16,6 +16,7 @@ import { readFileSync, realpathSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { Effort } from "@oh-my-pi/pi-catalog/effort";
 import type { ExtensionAPI } from "@oh-my-pi/pi-coding-agent";
 
 // DigitalOcean Serverless Inference host (the control-plane API lives at a
@@ -127,8 +128,8 @@ function mapModel(id: string, entry: DoModelEntry) {
       ? {
           thinking: {
             mode: "effort" as const,
-            efforts: ["low", "medium", "high"] as const,
-            defaultLevel: "medium" as const,
+            efforts: [Effort.Low, Effort.Medium, Effort.High],
+            defaultLevel: Effort.Medium,
           },
           compat: { reasoningDisableMode: "none-effort" as const },
         }

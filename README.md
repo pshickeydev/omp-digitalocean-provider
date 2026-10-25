@@ -72,7 +72,7 @@ visible, but it logs a warning that live availability is unconfirmed.
 ## Limitations
 
 - **Cost data is bundled and static.** DO publishes rates on its documentation
-  pages, not behind an API, so `do-models.json` is a snapshot (read 2026-10-17)
+  pages, not behind an API, so `do-models.json` is a snapshot (read 2026-10-23)
   of the pricing pages, with keys verified against the live `GET /v1/models`
   list. Rebuild it when DO publishes new rates; the re-sync diff in
   [Verification](#verification) catches ID drift.
